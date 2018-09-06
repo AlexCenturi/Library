@@ -1,2 +1,2 @@
 # Library
-MVC Asp.NET Core Application
+Library ASP.NET Core App
