@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta charset="UTF-8">
+	<meta name="description" content="Arbetsprov" />
+	<meta name="keywords" content="Bibliotek, Låntagare, Försening" />
+	<meta name="author" content="Alexander Krasse" />
+	<meta name="GENERATOR" content="Microsoft Visual Studio 2017" />
+	<meta name="robots" content="all" />
+
+	<link href="../Styles/MenuStyle.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	@RenderSection("Styles", false)
+	<title>@ViewBag.Title</title>
+</head>
+<body>
+	<header class="nav-header">
+		<nav class="Nav-Index">
+			<div class="menu">
+				<ul>
+					<li class="index"><a href="/home/Index">Home</a></li>
+					<li><a asp-area="" asp-controller="Book" asp-action="Book">Book</a></li>
+					<li><a asp-area="" asp-controller="Manager" asp-action="Manager">Manager</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div>
+		@RenderBody()
+	</div>
+
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+	@RenderSection("scripts", false)
+</body>
+</html>
