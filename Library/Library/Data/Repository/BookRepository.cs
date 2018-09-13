@@ -26,12 +26,18 @@ namespace Library.Data.Repository
 
 		public new IEnumerable<Book> GetById(int id)
 		{
-			return _context.Books.Any(b => b.Id == id) ? _context.Books.Include(b => b.Id == id) : null;
+			return _context.Books.Any(b => b.Id == id) ? _context.Books.Where(b => b.Id == id) : null;
 		}
 
 		public void Search(string searchFor)
 		{
 
+		}
+
+		public void Create(Book book)
+		{
+			_context.Books.Add(book);
+			_context.SaveChanges();
 		}
 	}
 }

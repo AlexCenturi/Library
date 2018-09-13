@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Library.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Library.Handlers;
+using Library.Data.Model;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,6 +28,8 @@ namespace Library.Controllers
 			var book = _repository.GetAll().ToArray();
 			return View(book);
 		}
+
+
 	}
 }
 

@@ -1,0 +1,21 @@
+﻿@model Book
+
+
+<form asp-controller="Manager" asp-action="Create" method="post" class="form-horizontal" role="form">
+
+	<label asp-for="Title" class="col-md-2 control-label"></label><br />
+	<input asp-for="Title" class="form-control" placeholder="Title" />
+	<label asp-for="ISBN" class="col-md-2 control-label"></label>
+	<input asp-for="ISBN" class="form-control" placeholder="ISBN" />
+	<label asp-for="Author" class="col-md-2 control-label"></label>
+	<input asp-for="Author" class="form-control" placeholder="Author name" />
+
+	<div class="form-group">
+		<div class="btn-group col-md-offset-2 col-md-6">
+			<input class="btn btn-default" type="submit" value="Return" asp-controller="Book" asp-action="GetAll" />
+			<input class="btn btn-success" type="submit" value="Create" />
+		</div>
+	</div>
+</form>
+
+	

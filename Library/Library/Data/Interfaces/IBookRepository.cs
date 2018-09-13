@@ -10,7 +10,7 @@ namespace Library.Data.Interfaces
 	public interface IBookRepository : IRepository<Book>
 	{
 		new IEnumerable<BookVM> GetAll();
-		IEnumerable<Book> GetById(int id);
+		new IEnumerable<Book> GetById(int id);
 
 	}
 }

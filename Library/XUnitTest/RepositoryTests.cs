@@ -35,14 +35,20 @@ namespace XUnitTest
 		[Fact]
 		public void BookRepositoryGetByIdTest() 
 		{
-			var data = service.GetById(1).ToArray()[0];
-			Assert.Equal("Robert Martin", data.Author);
+			var data = service.GetById(5).ToArray();
 
-			// Index out of range
+			Assert.Single(data);
+			Assert.Equal("Max Tegmark", data[0].Author);
+
 			var nulldata = service.GetById(10);
 			Assert.Null(nulldata);
 		}
 
-	
+		//[Fact]
+		//public void BookRepositoryCreateTest()
+		//{
+		//	var book = new Book { Title = "TestBook", ISBN = "5465456454", Author = "Kalle", Id = 10 };
+		//	service.Create(book);
+		//}
 	}
 }
