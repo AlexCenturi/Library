@@ -10,5 +10,7 @@ namespace Library.Data.Interfaces
     public interface IBookAndBorrowerRepository
     {
 		IQueryable<BookAndBorrowerViewModel> GetAll();
+		IQueryable<BookAndBorrowerViewModel> Search(string searchFor, bool[] criteria);
+
 	}
 }

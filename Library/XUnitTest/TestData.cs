@@ -1,5 +1,7 @@
-﻿using Library.Data.Model;
+﻿using Library.Data.Interfaces;
+using Library.Data.Model;
 using Library.Models;
+using Library.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System;
@@ -20,7 +22,7 @@ namespace XUnitTest
 			new BorrowList{Id = 4, Cid = 6, Bid = 9, StartDate = new DateTime(2018,07,14), ReturnDate = new DateTime(2018,08,14)},
 		};
 
-		readonly static List<Book> books = new List<Book>
+		public readonly static List<Book> books = new List<Book>
 		{
 			new Book{Id = 0, ISBN = "9780132350884", Title = "Clean Code", Author = "Robert Martin"},
 			new Book{Id = 1, ISBN = "9780137081073", Title = "The Clean Coder", Author = "Robert Martin"},
@@ -45,6 +47,11 @@ namespace XUnitTest
 			dbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(() => queryable.GetEnumerator());
 
 			return dbSet.Object;
+		}
+
+		public static IEnumerable<BookVM> GetAll()
+		{
+			return null;
 		}
 
 		public static DbSet<Book> GetBooks()

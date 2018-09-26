@@ -8,28 +8,40 @@
 	<link href="~/Styles/ManagerStyle.css" rel="stylesheet" />
 }
 
-<form id="form">
-	<div>
-		<div class="search-container">
-			<input type="text" name="string" id="searchInput" placeholder="Search..." />
-			<button type="button" class="submitBtn" onclick="search()">
-				<i class="fa fa-search"></i>
-			</button>
+	<form id="form">
+		<div>
+			<div class="search-container">
+				<input type="text" name="string" id="searchInput" placeholder="Search..." />
+				<button type="button" class="submitBtn" onclick="search()">
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+			<div class="expiredContainer">
+				<button type="button" class="submitBtn" title="List expired books" onclick="listExpired()">
+					<i class="fa fa-history"></i>
+				</button>
+			</div>
 		</div>
-		<div class="expiredContainer">
-			<button type="button" class="submitBtn" title="List expired books" onclick="listExpired()">
-				<i class="fa fa-history"></i>
-			</button>
-		</div>
-	</div>
-	<br />
-	<br />
-	<input type="checkbox" name="searchType" value="isbn"> ISBN
-	<input type="checkbox" name="searchType" value="title" checked> Title
-	<input type="checkbox" name="searchType" value="author"> Author
-	<br />
-
-</form>
+		<br />
+		<br />
+		<label>Book</label>
+		<br />
+		<input type="checkbox" name="searchType" value="isbn"> ISBN
+		<input type="checkbox" name="searchType" value="title" checked> Title
+		<input type="checkbox" name="searchType" value="author"> Author
+		<br />
+		<br />
+		<label>Customer</label>
+		<br />
+		<input type="checkbox" name="searchType" value="surname"> Surname
+		<input type="checkbox" name="searchType" value="familyname"> Family name
+		<input type="checkbox" name="searchType" value="ssn"> SSN
+		<input type="checkbox" name="searchType" value="pcode"> Postal code
+		<input type="checkbox" name="searchType" value="borrowed"> Borrowed
+		<input type="checkbox" name="searchType" value="return"> Return date
+		<br />
+		<br />
+	</form>
 
 
 

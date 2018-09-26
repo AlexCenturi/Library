@@ -23,8 +23,8 @@ namespace Library.Data.Repository
 				   from c in _context.Customers
 				   .Where(bc => bc.Id == mid.Cid).DefaultIfEmpty()
 
-					//ToDo 
-					//where (p.Id == 1)
+					   //ToDo 
+					   //where (p.Id == 1)
 				   select new BookAndBorrowerViewModel
 				   {
 					   Book = b,
@@ -48,6 +48,32 @@ namespace Library.Data.Repository
 				});
 		}
 
+		public IQueryable<BookAndBorrowerViewModel> Search(string searchFor, bool[] criteria)
+		{
+			var searchString = searchFor.ToUpper();
+
+			return _context.Books.Where(b =>
+				b.ISBN.Contains(searchString) && criteria[0] ||
+				b.Title.ToUpper().Contains(searchString) && criteria[1] ||
+				b.Author.ToUpper().Contains(searchString) && criteria[2])
+				.Join(_context.BorrowList, b => b.Id, cb => cb.Bid, (b, bc) => new
+				{
+					b,
+					bc
+				})
+				.Join(_context.Customers, c => c.bc.Cid, x => x.Id, (bc, x) => new
+				{
+					bc,
+					x
+				})
+				.Select(m => new BookAndBorrowerViewModel
+				{
+					Book = m.bc.b,
+					Customer = m.x,
+					StartDate = m.bc.bc.StartDate,
+					ReturnDate = m.bc.bc.ReturnDate
+				});
+		}
 
 		// ToDo remove
 		public new IEnumerable<Customer> GetById(int id)
